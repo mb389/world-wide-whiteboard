@@ -32,8 +32,8 @@ io.on('connection', function (socket) {
          console.log(socket+" has left");
     })
 
-    socket.on('drawingEvent', function (data) {
-      console.log(data);
-      socket.broadcast.emit('drawn',data);
+    socket.on('drawingEvent', function (start, end, color, broadcast) {
+      console.log(start, end, color, broadcast);
+      socket.broadcast.emit('drawn',start, end, color, broadcast);
       })
 });
